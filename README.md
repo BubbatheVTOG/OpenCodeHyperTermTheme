@@ -2,6 +2,16 @@
 
 An [opencode](https://opencode.ai) theme based on the [Hyper Term Black](https://github.com/HasseNasse/hyper-term-theme) VSCode theme — a pure-black dark theme with a vibrant syntax palette (purple keywords, blue functions, red variables, green strings, orange numbers, yellow types, cyan operators).
 
+## Screenshots
+
+### hyper-term
+
+![hyper-term](screenshots/hyper-term.png)
+
+### hyper-term-teal
+
+![hyper-term-teal](screenshots/hyper-term-teal.png)
+
 ## Variants
 
 - **hyper-term** — faithful Hyper Term Black translation (red variables/headings/diff-removed)
