@@ -1,22 +1,21 @@
 #!/usr/bin/env sh
 # Install the hyper-term themes into the user-global opencode themes directory.
-# After installing, run `/theme` in opencode and select "hyper-term" or "hyper-term-teal".
+# After installing, run `/theme` in opencode and select a "hyper-term-*" variant.
 set -e
 
 THEMES_DIR="$(dirname "$0")/.opencode/themes"
 DEST_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/opencode/themes"
+mkdir -p "$DEST_DIR"
 
-for theme in hyper-term hyper-term-teal; do
-  SRC="$THEMES_DIR/$theme.json"
-  DEST="$DEST_DIR/$theme.json"
-
-  if [ ! -f "$SRC" ]; then
-    echo "error: theme source not found at $SRC" >&2
-    exit 1
-  fi
-
-  install -Dm644 "$SRC" "$DEST"
-  echo "Installed $theme theme to $DEST"
+count=0
+for SRC in "$THEMES_DIR"/hyper-term-*.json; do
+  [ -f "$SRC" ] || continue
+  install -Dm644 "$SRC" "$DEST_DIR/$(basename "$SRC")"
+  count=$((count + 1))
 done
 
-echo "Run /theme in opencode and select 'hyper-term' or 'hyper-term-teal'."
+# Remove stale single-name theme from older installs
+rm -f "$DEST_DIR/hyper-term.json"
+
+echo "Installed $count themes to $DEST_DIR"
+echo "Run /theme in opencode and select a 'hyper-term-*' variant."
