@@ -4,9 +4,9 @@ An [opencode](https://opencode.ai) theme based on the [Hyper Term Black](https:/
 
 ## Screenshots
 
-### hyper-term
+### hyper-term-red
 
-![hyper-term](screenshots/hyper-term.png)
+![hyper-term-red](screenshots/hyper-term-red.png)
 
 ### hyper-term-teal
 
@@ -14,8 +14,22 @@ An [opencode](https://opencode.ai) theme based on the [Hyper Term Black](https:/
 
 ## Variants
 
-- **hyper-term** — faithful Hyper Term Black translation (red variables/headings/diff-removed)
-- **hyper-term-teal** — same theme with red swapped for cyan `#00FFFF` (matching the Hyprland cyan accent). Variables, headings, list items, and diff-removed text appear in teal instead of red.
+Each variant swaps the variable/heading/list/diff-removed accent to match a
+Hyprland UI theme (the same hex values used by the `toggle-theme.sh` palette):
+
+| variant | accent | hex |
+|---|---|---|
+| **hyper-term-red** | red | `#ef596f` |
+| **hyper-term-teal** | teal | `#00ffff` |
+| **hyper-term-green** | green | `#33ff55` |
+| **hyper-term-yellow** | yellow | `#ffdd00` |
+| **hyper-term-orange** | orange | `#ff8833` |
+| **hyper-term-purple** | purple | `#bd00ff` |
+| **hyper-term-white** | white | `#D7DAE0` |
+
+All variants share the same Hyper Term Black base (pure-black background, purple
+keywords, blue functions, green strings, orange numbers, yellow types, cyan
+operators); only the variable/heading/list/diff-removed color changes.
 
 ## Install
 
@@ -25,23 +39,25 @@ An [opencode](https://opencode.ai) theme based on the [Hyper Term Black](https:/
 ./install.sh
 ```
 
-This copies both themes to `~/.config/opencode/themes/` (respecting `XDG_CONFIG_HOME`) using the `install` command.
+This copies all `hyper-term-*` themes to `~/.config/opencode/themes/`
+(respecting `XDG_CONFIG_HOME`) using the `install` command.
 
 ### Manual
 
-Copy `.opencode/themes/hyper-term.json` and `.opencode/themes/hyper-term-teal.json` to either:
+Copy the `.opencode/themes/hyper-term-*.json` files to either:
 
 - `~/.config/opencode/themes/` (user-global), or
 - `<project>/.opencode/themes/` (project-local)
 
 ## Activate
 
-Run `/theme` in opencode and select `hyper-term` or `hyper-term-teal`, or set it in `tui.json`:
+Run `/theme` in opencode and select a `hyper-term-*` variant, or set it in
+`tui.json`:
 
 ```json
 {
   "$schema": "https://opencode.ai/tui.json",
-  "theme": "hyper-term"
+  "theme": "hyper-term-purple"
 }
 ```
 
